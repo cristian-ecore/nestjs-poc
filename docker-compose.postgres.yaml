@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  postgres:
+    image: postgres
+    container_name: postgres_nest_poc
+    restart: always
+    tty: true
+    environment:
+      POSTGRES_DATABASE: nestjs-poc
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: pgpwd
+      PGDATA: /var/lib/postgresql/data/pgdata
+    ports:
+      - "5433:5432"
+    volumes:
+       - ./postgres:/var/lib/postgres
